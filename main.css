@@ -19,7 +19,7 @@
     align-items: flex-end;
 }*/
 .accessibilityHidden button:not(#accessButton) { display: none; }
-#accessibilityContainer  button {
+/*#accessibilityContainer  button {
     background-color: #375E13;
     color: #ebe4ce;
     border:none;
@@ -29,8 +29,8 @@
     font-size: 1.25em;
     border-radius: 10px;
 
-}
-#accessibilityOptions {
+}*/
+/*#accessibilityOptions {
     display:-webkit-box;
     display:-ms-flexbox;
     display:flex;
@@ -38,7 +38,7 @@
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
-}
+}*/
 #accessButton {
     width: 68px;
     height: 68px;

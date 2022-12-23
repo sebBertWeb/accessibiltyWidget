@@ -1,8 +1,6 @@
-function createWidget(pColor, sColor, hColor, sizePx)   {   // Primary Color , Secondary Color, Highlight Color, Button size in px
-    let mainContainer, mainBtn, optionsContainer, btn1, btn2, btn3, btn4;
+function createWidget(pColor, sColor, hColor)   {
+    let mainContainer, mainBtn, optionsContainer, btn1, btn2, btn3, btn4;   //maybe change to json
     let rgContainer, rgOuter, rgInner;
-
-
 
     mainContainer = document.createElement('div');
     mainContainer.id = 'accessibilityContainer';
@@ -30,8 +28,8 @@ function createWidget(pColor, sColor, hColor, sizePx)   {   // Primary Color , S
     btn4.id = 'hLinkBtn';
     btn4.textContent = 'Highlight Links';
 
-    mainContainer.style.cssText = 
-    `position: sticky;
+    mainContainer.style.cssText = `
+    position: sticky;
     bottom: 2vw;
     margin-right: 2vw;
     display:-webkit-box;
@@ -43,7 +41,31 @@ function createWidget(pColor, sColor, hColor, sizePx)   {   // Primary Color , S
     flex-direction: column-reverse;
     -webkit-box-align: end;
     -ms-flex-align: end;
-    align-items: flex-end;`
+    align-items: flex-end;
+    `;
+    optionsContainer.style.cssText = `
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    `;
+    let btns = [mainBtn, btn1, btn2, btn3, btn4];
+    btns.forEach((btn) => {
+        btn.style.cssText =
+        `
+        background-color: ${pColor};
+        color: ${sColor};
+        border:none;
+        padding: 10px;
+        margin: 0.5vh 0;
+        font-weight: 600;
+        font-size: 1.25em;
+        border-radius: 10px;
+        `;
+    });
     
     optionsContainer.appendChild(btn1);
     optionsContainer.appendChild(btn2);
@@ -54,7 +76,7 @@ function createWidget(pColor, sColor, hColor, sizePx)   {   // Primary Color , S
     document.querySelector('#accessibilityWidget').appendChild(mainContainer);
     
 }
-createWidget();
+createWidget('#121','#CDC');
 // Events
 
 /*HTML
