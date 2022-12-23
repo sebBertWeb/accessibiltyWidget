@@ -1,0 +1,89 @@
+/*-Accesibility*/
+.accessibility {
+    position: sticky;
+    bottom: 2vw;
+    margin-right: 2vw;
+
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+
+    -webkit-box-orient: vertical;
+    
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+.accessibilityHidden button:not(#accessButton) { display: none; }
+.accessibility button {
+    background-color: #375E13;
+    color: #ebe4ce;
+    border:none;
+    padding: 10px;
+    margin: 0.5vh 0;
+    font-weight: 600;
+    font-size: 1.25em;
+    border-radius: 10px;
+
+}
+.accesibilityOptions {
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+}
+#accessButton {
+    width:68px;
+    height:68px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/*--Accessibility Options */
+.dyslexia {
+    font-family: Helvetica, Courier, Arial, Verdana, sans-serif; /* Best fonts according to this study: https://dyslexiahelp.umich.edu/sites/default/files/good_fonts_for_dyslexia_study.pdf*/
+    line-height: 2.0;       /*These numbers were partly based on this article: https://www.smashingmagazine.com/2021/11/dyslexia-friendly-mode-website/*/
+    letter-spacing: 0.2ch;
+    word-spacing: 1.2ch;
+    -webkit-font-variant-ligatures: none;
+            font-variant-ligatures: none;
+}
+.biggerText {
+    font-size: 2em;
+}
+/* Reading Guide */
+.readingGuide {
+    display:none;
+    height: 8px;
+    width: 500px;
+    background: black;
+    border:3px solid #FFB20F;
+    position: absolute;
+}
+.readingGuideTriangleOuter {
+    position: inherit;
+    translate: 247px -21px;
+    width: 0; 
+    height: 0; 
+    border-left: 19px solid transparent;
+    border-right: 19px solid transparent;
+    border-bottom: 19px solid #FFB20F;
+}
+.readingGuideTriangleInner {
+    position: inherit;
+    translate: 250px -16px;
+    width: 0; 
+    height: 0; 
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-bottom: 16px solid black;
+}
+.rgDisplay { display:block; }
