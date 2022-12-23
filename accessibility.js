@@ -1,6 +1,5 @@
+var mainContainer, mainBtn, optionsContainer, btn1, btn2, btn3, btn4;   //maybe change to json
 function createWidget(pColor, sColor, hColor)   {
-    let mainContainer, mainBtn, optionsContainer, btn1, btn2, btn3, btn4;   //maybe change to json
-    let rgContainer, rgOuter, rgInner;
 
     mainContainer = document.createElement('div');
     mainContainer.id = 'accessibilityContainer';
@@ -56,7 +55,8 @@ function createWidget(pColor, sColor, hColor)   {
         border-radius: 10px;
         `;
     });
-    
+    optionsContainer.style.display = 'none';
+
     optionsContainer.appendChild(btn1);
     optionsContainer.appendChild(btn2);
     optionsContainer.appendChild(btn3);
@@ -65,10 +65,17 @@ function createWidget(pColor, sColor, hColor)   {
     mainContainer.appendChild(optionsContainer);
     document.body.appendChild(mainContainer);
     
+    addEvents();
 }
-window.onload = function() { createWidget('#121','#CDC'); }
+
+function addEvents()    {
+    mainBtn.addEventListener('click', function() {
+        if (optionsContainer.style.display == 'none') { optionsContainer.style.display = 'block'; }
+        else { optionsContainer.style.display = 'none' }
+    });
+    
+}
 /*
-// Events
 // Dyslexia storing, setting, and toggling
 if (localStorage.getItem('dys')==='y') { 
     $('body').addClass('dyslexia');
