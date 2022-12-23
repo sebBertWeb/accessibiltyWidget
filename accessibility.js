@@ -66,7 +66,7 @@ function createWidget(pColor, sColor, hColor)   {
     document.body.appendChild(mainContainer);
     
 }
-document.body.onload(createWidget('#121','#CDC'));
+window.onload = function() { createWidget('#121','#CDC'); }
 /*
 // Events
 // Dyslexia storing, setting, and toggling
