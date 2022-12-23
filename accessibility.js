@@ -70,10 +70,10 @@ function createWidget(pColor, sColor, hColor)   {
 
 function addEvents()    {
     mainBtn.addEventListener('click', function() {
-        if (optionsContainer.style.display == 'none') { optionsContainer.style.display = 'block'; }
+        if (optionsContainer.style.display === 'none') { optionsContainer.style.display = 'block'; }
         else { optionsContainer.style.display = 'none' }
     });
-    
+
 }
 /*
 // Dyslexia storing, setting, and toggling
