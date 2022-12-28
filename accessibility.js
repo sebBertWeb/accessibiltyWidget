@@ -1,8 +1,41 @@
 var mainContainer, mainBtn, optionsContainer, btn1, btn2, btn3, btn4;   //maybe change to json
-function createWidget(pColor, sColor, hColor)   {
+var isMobile = /Android|iPhone/i.test(navigator.userAgent);
 
+function createWidget(pColor, sColor, hColor)   {
+    const cssStyle = document.createElement('style');
+    cssStyle.textContent = `
+    .mContainer {
+        position: sticky;
+        bottom: 2vw;
+        margin-right: 2vw;
+        display:-webkit-box; display:-ms-flexbox; display:flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse; -ms-flex-direction: column-reverse; flex-direction: column-reverse;
+        -webkit-box-align: end; -ms-flex-align: end; align-items: flex-end;
+    }
+    .oContainer {
+        display:-webkit-box; display:-ms-flexbox; display:flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse; -ms-flex-direction: column-reverse; flex-direction: column-reverse;
+    }
+    .accBtns    {
+        background-color: ${pColor};
+        color: ${sColor};
+        border:none;
+        padding: 10px;
+        margin: 0.5vh 0;
+        font-weight: 600;
+        font-size: 1.25em;
+        border-radius: 10px;
+    }
+    .hidden {
+        display:none;
+    }
+    `;
+    document.head.appendChild(cssStyle);
     mainContainer = document.createElement('div');
     mainContainer.id = 'accessibilityContainer';
+    mainContainer.classList.add('mContainer');
 
     mainBtn = document.createElement('button');
     mainBtn.id = 'accessibilityBtn';
@@ -10,6 +43,7 @@ function createWidget(pColor, sColor, hColor)   {
 
     optionsContainer = document.createElement('div');
     optionsContainer.id = 'accessibilityOptions';
+    optionsContainer.classList.add('oContainer','hidden');
 
     btn1 = document.createElement('button');
     btn1.id = 'dysBtn';
@@ -27,35 +61,8 @@ function createWidget(pColor, sColor, hColor)   {
     btn4.id = 'hLinkBtn';
     btn4.textContent = 'Highlight Links';
 
-    mainContainer.style.cssText = `
-    position: sticky;
-    bottom: 2vw;
-    margin-right: 2vw;
-    display:-webkit-box; display:-ms-flexbox; display:flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse; -ms-flex-direction: column-reverse; flex-direction: column-reverse;
-    -webkit-box-align: end; -ms-flex-align: end; align-items: flex-end;
-    `;
-    optionsContainer.style.cssText = `
-    display:-webkit-box; display:-ms-flexbox; display:flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse; -ms-flex-direction: column-reverse; flex-direction: column-reverse;
-    `;
     let btns = [mainBtn, btn1, btn2, btn3, btn4];
-    btns.forEach((btn) => {
-        btn.style.cssText =
-        `
-        background-color: ${pColor};
-        color: ${sColor};
-        border:none;
-        padding: 10px;
-        margin: 0.5vh 0;
-        font-weight: 600;
-        font-size: 1.25em;
-        border-radius: 10px;
-        `;
-    });
-    optionsContainer.style.display = 'none';
+    btns.forEach((btn) => {     btn.classList.add('accBtns');   });
 
     optionsContainer.appendChild(btn1);
     optionsContainer.appendChild(btn2);
@@ -70,9 +77,9 @@ function createWidget(pColor, sColor, hColor)   {
 
 function addEvents()    {
     mainBtn.addEventListener('click', function() {
-        if (optionsContainer.style.display === 'none') { optionsContainer.style.display = 'block'; }
-        else { optionsContainer.style.display = 'none' }
+        optionsContainer.classList.toggle('hidden');
     });
+    //user clicks somewehre else
 
 }
 /*
